@@ -1,0 +1,96 @@
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 " style="position:fixed; left: -10px;" id="side-bar">
+        <button type="button" class="btn btn-block btn-warning" (click)="ngHome()">Ana sayfa</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngJobs()">İşler</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngUsers()">Kullanıcılar</button>
+        <button type="button" class="btn btn-block btn-danger" (click)="ngPassword()">Şifre değiştir</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngLogs()">Log</button>
+
+        <button type="button" class="btn btn-block btn-warning" (click)="ngExit()" style="position:absolute; bottom: 0px;">Oturumu durdur</button>
+    </aside>
+    <div class ="content-wrapper">
+        <div style="position:absolute; right: 20px;">
+            -{{status}}-
+            <button type="button" class="btn btn-block btn-secondary" (click)="ngPrint()" id="after" id="button1"><tr class = "fa fa-print"></tr></button>
+        </div>
+        <h3>{{job.isim}}({{job.point}})</h3>
+        <p>Deadline: {{job.deadline}}</p>
+        <button type="button" class="btn btn-block btn-secondary" (click)="ngTake()" style = "width: 100px;" id="button2">İşi al</button>
+        <button type="button" class="btn btn-block btn-danger" (click)="ngGive()" style = "width: 100px;" id="button5">İşi ata</button>
+        <button type="button" class="btn btn-block btn-primary" style="width: 100px;"(click)="ngParent()" id="parentButton">Üst işe git</button>
+        <button type="button" class="btn btn-block btn-danger" style="width: 100px;"(click)="ngSubJob()" id="addSubJob">Alt iş ekle</button>
+
+        <p>{{job.aciklama}}</p>
+        <div class="row" style="position: relative; left: -10px;" id="row1">
+            <button type="button" class="btn btn-block btn-success" (click)="ngActive()" style="width: 150px; position:relative; bottom: 0px; left: 10px; margin-top: 0.5rem;">Aktif</button>
+            <button type="button" class="btn btn-block btn-warning" (click)="ngWorking()" style="width: 200px; position:relative; bottom: 0px; left: 10px">Üzerinde çalışılıyor</button>
+            <button type="button" class="btn btn-block btn-danger" (click)="ngFinish()" style="width: 150px; position:relative; bottom: 0px; right: 20px">İş tamamlandı</button>
+        </div>
+        <div class="row" id="row2">
+        
+            <div class="input-group mb-0">
+                <textarea type="text" class="form-control" rows="5" placeholder="Mesaj" #message></textarea>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-block btn-secondary" style="width: 150px; position: relative; right: 10px;"(click)="ngMessage(message)" id="button3">Mesajı Ekle</button>
+
+        <table class="table table-bordered" id="sj">
+            <thead>
+                <th>Alt İşler</th>
+            <tr>
+            <th>İsim</th>
+            <th>Puan</th>
+            <th>Deadline</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let subjob of subJobs">
+                    <tr>
+                        <td><button type="button" class={{subjob.class}} (click)="ngSubjob(subjob.id)">{{subjob.isim}}</button></td>
+                        <td>{{subjob.point}}</td>
+                        <td>{{subjob.deadline}}</td>
+                    </tr>
+            </tbody>
+        </table> 
+        
+    <table class="table table-bordered">
+        <thead>
+            <th>Kullanıcı Listesi</th>
+        <tr>
+        <th>İsim</th>
+        <th>E-posta</th>
+        <th><button type="button" class="btn btn-block btn-secondary" (click)="ngFilterAutomated()">Otomatik mesajları kaldır</button></th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let user of users">
+                <tr>
+                    <td>{{user.isim}}</td>
+                    <td>{{user.e_posta}}</td>
+                    <td>
+                        <button type="button" class="btn btn-block btn-secondary" (click)="ngFilter(user.id)">Kullanıcının olmayan mesajları kaldır</button> 
+                    </td>
+                </tr>
+        </tbody>
+    </table>    
+
+    <h2><b>Bırakılan Mesajlar:</b></h2>
+    
+    <div class="row">
+            <div style="position: relative; top: 10px;" *ngFor="let message of data">
+                    <div class = {{message.class}}>
+                        <div class = "card-header">{{message.isim}}: {{message.e_posta}}</div>
+                        <div class = "card-body">{{message.mesaj}}</div>
+                    </div>
+            </div>
+    </div>
+    <button type="button" class="btn btn-block btn-danger" (click)="ngDrop()"style="width: 150px; position:relative; bottom: 0; left: 0px" id="button4">İşi bırak</button> 
+    </div>
+    </div>
+    <script>job.component.specs.ts</script>

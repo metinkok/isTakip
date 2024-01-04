@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 " style="position:fixed; left: -10px;" id="side-bar">
+        <button type="button" class="btn btn-block btn-warning" (click)="ngHome()">Ana sayfa</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngJobs()">İşler</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngUsers()">Kullanıcılar</button>
+        <button type="button" class="btn btn-block btn-danger" (click)="ngPassword()">Şifre değiştir</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngLogs()">Log</button>
+        
+        <button type="button" class="btn btn-block btn-warning" (click)="ngExit()" style="position:absolute; bottom: 0px;">Oturumu durdur</button>
+    </aside>
+        <div class ="content-wrapper">
+            <div class="input-group mb-3" id="search">
+                <div class="col-11">
+                    <input type="text" class="form-control" placeholder="Kullanıcı E-posta adresi" #name>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngSearch(name)">Kullanıcı ara</button>
+                </div>
+
+            </div>
+            <div class="input-group mb-0" id="dayFilter">
+                <input type ="date" #date>
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngDay(date)" style = "width: 100px;">Saçilen Gün</button>
+                </div>
+
+                <input type ="date" style="position: relative; right: -50px;" #day1>
+                <input type ="date" style="position: relative; right: -50px;" #day2>
+                <div class="input-group-append" style="position: relative; right: -50px;">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngBetween(day1, day2)" style = "width: 100px;">Tarihler Arası</button>
+                </div>
+                <div style="position: relative; right: -975px;">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngPrint()" id="button1"><tr class = "fa fa-print"></tr></button>
+                </div>
+            </div>
+            <div class="row" id = "row">
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngToday()">Bugün</button>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngMonth()">Bu Ay</button>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngYear()">Bu Yıl</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngNoFilter()">Tüm logları göster</button>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                <th>Kullanıcı</th>
+                <th>Log Kaydı</th>
+                <th>Tarih</th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let log of data">
+                    <td>{{log.e_posta}}</td>
+                    <td>{{log.log_record}}</td>
+                    <td>{{log.date_time}}</td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <script>all_jobs.component.specs.ts</script>

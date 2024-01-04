@@ -1,0 +1,37 @@
+<div class="hold-transition login-page">
+    <div class="login-box">
+        <div class = "center">
+            <i class="fa-solid fa-book-bookmark"></i>
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Hoş geldiniz</p>
+                <label id = "Error" th:text = "${hatali_sifre}"></label>
+                <label id = "username_info"></label>
+                <label id = "password_info"></label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="E-posta adresi" #kullanici_adi>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                <input type="password" class="form-control" placeholder="Şifre" #sifre>
+                    <div class="input-group-append">
+                       <div class="input-group-text">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-secondary btn-block" (click)="ngSendData(kullanici_adi, sifre)"id = "login">Giriş Yap</button>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-secondary btn-block" (click)="ngSignUp()"id = "signup">Kayıt Ol</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 " style="position:fixed; left: -10px;">
+        <button type="button" class="btn btn-block btn-warning" (click)="ngHome()">Ana sayfa</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngJobs()">İşler</button>
+        <button type="button" class="btn btn-block btn-secondary" (click)="ngNewJob()">Yeni iş ekle</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngUsers()">Kullanıcılar</button>
+        <button type="button" class="btn btn-block btn-danger" (click)="ngPassword()">Şifre değiştir</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngLogs()">Log</button>
+        
+        <button type="button" class="btn btn-block btn-warning" (click)="ngExit()" style="position:absolute; bottom: 0px;">Oturumu durdur</button>
+    </aside>
+        <div class ="content-wrapper">
+            <div class="input-group mb-3">
+                <div class="col-11">
+                    <input type="text" class="form-control" placeholder="İş adı" #name>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngSearch(name)">İş ara</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngToday()">Deadline'ı Bugün</button>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngHide()">Deadline'ı Geçmemiş</button>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngThisMonth()">Deadline'ı Bu Ay</button>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngNoFilter()">Filtreyi Kaldır</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-block btn-danger" (click)="ngStatus(3)">Bitmiş işler</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-block btn-warning" (click)="ngStatus(2)">Çalışılan işler</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-block btn-success" (click)="ngStatus(1)">Aktif işler</button>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                <th>İş adı</th>
+                <th>Kullanıcı Sayısı</th>
+                <th>İşin durumu</th>
+                <th>Puan</th>
+                <th>Deadline</th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let job of data">
+                        <tr>
+                            <td><button type="button" class="btn btn-block btn-danger" (click)="ngGive(job.id)">{{job.isim}}</button></td>
+                            <td>{{job.numberOfUsers}}</td>
+                            <td class={{job.class}}>{{job.status}}</td>
+                            <td>{{job.point}}</td>
+                            <td >{{job.deadline}}</td>
+                        </tr>
+                </tbody>
+                </table>
+        </div>
+    </div>
+    </div>
+    <script>all_jobs_admin.component.specs.ts</script>

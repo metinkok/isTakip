@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 " style="position:fixed; left: -10px;">
+        <button type="button" class="btn btn-block btn-warning" (click)="ngHome()">Ana sayfa</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngJobs()">İşler</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngUsers()">Kullanıcılar</button>
+        <button type="button" class="btn btn-block btn-danger" (click)="ngPassword()">Şifre değiştir</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngLogs()">Log</button>
+        
+        <button type="button" class="btn btn-block btn-warning" (click)="ngExit()" style="position:absolute; bottom: 0px;">Oturumu durdur</button>
+    </aside>
+        <div class ="content-wrapper">
+            <div class="input-group mb-3">
+                <div class="col-11">
+                    <input type="text" class="form-control" placeholder="İsim Soyisim" #name>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-block btn-secondary" (click)="ngSearch(name)">Kullanıcı ara</button>
+                </div>
+                <div class="row" style="position: relative; left: 15px;">
+                    <button type="button" class="btn btn-block btn-danger" (click)="ngAssign()">Seçilen kullanıcılara işi ata</button>
+                </div>
+            </div>
+            <table class="table table-bordered">
+            <thead>
+            <tr>
+            <th>İsim</th>
+            <th>E_posta adresi</th>
+            <th>▼</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let user of data">
+                    <tr>
+                        <td>{{user.isim}}</td>
+                        <td>{{user.e_posta}}</td>
+                        <td><input type = "checkbox" id = {{user.id}}><label>Kullanıcıyı seç</label></td>
+                    </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <script>all_users_admin.component.specs.ts</script>

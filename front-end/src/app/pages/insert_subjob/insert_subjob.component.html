@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 " style="position:fixed; left: -10px;">
+        <button type="button" class="btn btn-block btn-warning" (click)="ngHome()">Ana sayfa</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngJobs()">İşler</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngUsers()">Kullanıcılar</button>
+        <button type="button" class="btn btn-block btn-danger" (click)="ngPassword()">Şifre değiştir</button>
+        <button type="button" class="btn btn-block btn-warning" (click)="ngLogs()">Log</button>
+        
+        <button type="button" class="btn btn-block btn-warning" (click)="ngExit()" style="position:absolute; bottom: 0px;">Oturumu durdur</button>
+    </aside>
+    <div class ="content-wrapper">
+    <div class="row">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="İş adı" #name>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    </div>
+                </div>
+                <select id = "status" #status>
+                    <option disabled value="0">İşin Statüsü:</option>
+                    <option value="1">Aktif</option>
+                    <option value="2">Üzerinde Çalışılıyor</option>
+                    <option value="3">Bitmiş</option>
+                </select>
+            </div>
+            <div class="input-group mb-0">
+                <textarea type="text" class="form-control" rows="5" placeholder="Açıklama" #exp></textarea>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group mb-0">
+                <input type ="date" #date>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    </div>
+                </div>
+            </div>
+    </div>
+    <button type="button" class="btn btn-block btn-secondary" style="width: 150px; position: relative; left: 10px;"(click)="ngCreate(name, status, exp, 0, date)">Oluştur</button>
+    </div>
+    </div>
+    <script>insert_subjob.component.specs.ts</script>
